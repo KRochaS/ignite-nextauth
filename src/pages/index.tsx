@@ -1,49 +1,56 @@
 import { FormEvent, useContext, useState } from "react";
+import { Button } from "../components/Button";
+import { Input } from "../components/Input";
 import { AuthContext } from "../contexts/AuthContext";
 import { withSSRGuest } from "../utils/withSSRGuest";
 
 export default function Home() {
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
-    const { signIn } = useContext(AuthContext);
+  const { signIn } = useContext(AuthContext);
 
+  async function handleSubmit(event: FormEvent) {
+    event.preventDefault();
 
-    async function handleSubmit(event: FormEvent) {
-        event.preventDefault();
+    const data = {
+      email,
+      password,
+    };
 
-        const data = {
-            email,
-            password
-        }
+    await signIn(data);
+  }
 
-        await signIn(data);
-    }
+  return (
+    <>
+      <div className="flex h-full w-full flex-col items-center justify-center">
+        <form
+          className="flex flex-col rounded-2xl bg-gray-400 p-8"
+          onSubmit={handleSubmit}
+        >
+          <Input
+            label="E-mail"
+            type="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
 
-    return (
+          <Input
+            label="Password"
+            type="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
 
-        <>
-        <div className="h-full w-full flex items-center justify-center flex-col"> 
-        <form className="flex flex-col bg-gray-400 p-8 rounded-2xl" onSubmit={handleSubmit}>
-            <label className="mb-2 text-white text-base font-semibold"> E-mail </label>
-            <input className="bg-gray-960 h-12 w-72 rounded  pl-2 mb-4 text-white" type="email" value={email} onChange={e => setEmail(e.target.value)} />
-            <label className="mb-2 text-white text-base font-semibold"> Password </label>
-            <input className="bg-gray-960 h-12 w-72 rounded pl-2 text-white" type="password" value={password} onChange={e => setPassword(e.target.value)} />
-
-            <button className="bg-gradient-to-r from-orange-100 to-purple-300 mt-6 h-12 w-72 rounded text-white text-base font-semibold" type="submit"> Enter </button>
+          <Button type="submit"> Enter </Button>
         </form>
-
-        </div>
-        
-        </>
-    )
+      </div>
+    </>
+  );
 }
 
-
 export const getServerSideProps = withSSRGuest(async (ctx) => {
-    return {
-        props: {
-
-        }
-    }
-})
+  return {
+    props: {},
+  };
+});
