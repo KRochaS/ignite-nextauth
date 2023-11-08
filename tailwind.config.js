@@ -12,6 +12,12 @@ module.exports = {
                 sans: 'var(--font-inter)',
 
             },
+            fontSize: {
+                '34': '34px',
+            },
+            boxShadow: {
+                '3xl': ' 3px 4px 26px 0px rgba(0, 0, 0, 0.25)',
+            },
             colors: {
                 'white': '#FFFFFF',
                 'black-700': '#1E1E1E',
@@ -25,6 +31,7 @@ module.exports = {
                 'purple-300': '#A66DE9',
                 'orange-100': '#DF9780',
                 'red-300': '#EA5455',
+                'blue-200': '#7367F0'
             },
         },
         plugins: [],
