@@ -22,30 +22,30 @@ export default function Home() {
   }
 
   return (
-    <>
-      <div className="flex h-full w-full flex-col items-center justify-center">
-        <form
-          className="flex flex-col rounded-2xl bg-gray-400 p-8"
-          onSubmit={handleSubmit}
-        >
-          <Input
-            label="E-mail"
-            type="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-          />
+    <div className="flex h-screen w-full flex-col items-center justify-center">
+      <form
+        className="flex flex-col rounded-2xl bg-gray-400 p-8"
+        onSubmit={handleSubmit}
+      >
+        <Input
+          label="E-mail"
+          type="email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+        />
 
-          <Input
-            label="Password"
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          />
+        <Input
+          label="Password"
+          type="password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+        />
 
-          <Button type="submit"> Enter </Button>
-        </form>
-      </div>
-    </>
+        <Button heightValue={72} type="submit">
+          Sign In
+        </Button>
+      </form>
+    </div>
   );
 }
 
