@@ -29,7 +29,7 @@ enabling control over access to routes and components both on the client-side an
 
 ## Technologies and libs:                                                                
 - [React](https://pt-br.reactjs.org/)
-- [NextJS 13](https://nextjs.org/)
+- [NextJS](https://nextjs.org/)
 - [TailwindCSS](https://tailwindcss.com/)
 - [Typescript](https://www.typescriptlang.org/)
 - [Nokiees](https://www.npmjs.com/package/nookies)
